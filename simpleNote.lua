@@ -2,7 +2,10 @@ local Note = require "noteInterface"
 
 local simpleNote = {}
 
+setmetatable(simpleNote, Note)
+
 simpleNote.new = function(self, time)
+  assert(type(time) == "number", "simpleNote.new: time is " .. type(time))
   local object = {}
   setmetatable(object, self)
   self.__index = self
@@ -11,11 +14,8 @@ simpleNote.new = function(self, time)
   return object
 end
 
-simpleNote.setHitTime = function(self, newTime)
-  self.hitTime = newTime
-end
-
 simpleNote.setAliveState = function(self, isAlive)
+  assert(type(isAlive) == "boolean", "simpleNote.setAliveState: isAlive is " .. type(isAlive))
   self.aliveState = isAlive
 end
 
@@ -23,7 +23,7 @@ simpleNote.getHitTime = function(self)
   return self.hitTime
 end
 
-simpleNote.getAliveTime = function(self)
+simpleNote.getAliveState = function(self)
   return self.aliveState
 end
 
