@@ -10,10 +10,10 @@ IteratorTests.new = function(self, iteratorClass)
   return object
 end
 
-IteratorTests.assureHasNext = function(self) end
+IteratorTests.assertHasNext = function(self) end
 
-IteratorTests.assureSeek = function(self) end
+IteratorTests.assertSeek = function(self) end
 
-IteratorTests.assureNext = function(self) end
+IteratorTests.assertNext = function(self) end
 
 return IteratorTests
